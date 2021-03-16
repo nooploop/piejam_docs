@@ -3,8 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to PieJam's documentation!
-==================================
+PieJam
+======
 
 .. toctree::
    :maxdepth: 2
@@ -23,8 +23,10 @@ Features
 * Dynamic configuration of inputs and outputs
 * Panning, stereo balance and volume controls
 * Mute and solo
-* Fx chain per mixer bus
+* Flexible routing between mixer channels
+* Fx chain per mixer channel
 * Support for LADSPA plugins
+* Parameter control through MIDI CC
 
 User interface
 --------------
@@ -44,9 +46,19 @@ Audio output settings
 .. image:: images/audio_output_settings.png
    :align: center
 
-Mixer
+MIDI input settings
+
+.. image:: images/midi_input_settings.png
+   :align: center
+
+Mixer Perform View
 
 .. image:: images/mixer.png
+   :align: center
+
+Mixer Edit View
+
+.. image:: images/mixer_edit_view.png
    :align: center
 
 Fx chain
@@ -57,4 +69,9 @@ Fx chain
 Fx browser
 
 .. image:: images/fx_browser.png
+   :align: center
+
+MIDI Learn
+
+.. image:: images/midi_learn.png
    :align: center
