@@ -22,7 +22,7 @@ copyright = '2020, Dimitrij Kotrev'
 author = 'Dimitrij Kotrev'
 
 # The full version, including alpha/beta/rc tags
-release = 'v0.4.0'
+release = 'v0.5.0'
 
 
 # -- General configuration ---------------------------------------------------
