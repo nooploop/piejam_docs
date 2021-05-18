@@ -27,6 +27,7 @@ Features
 * Fx chain per mixer channel
 * Support for LADSPA plugins
 * Parameter control through MIDI CC
+* Oscilloscope and Spectrum Analyzer
 
 User interface
 --------------
@@ -64,6 +65,16 @@ Mixer Edit View
 Fx chain
 
 .. image:: images/fx_chain.png
+   :align: center
+
+Oscilloscope
+
+.. image:: images/oscilloscope.png
+   :align: center
+
+Spectrum Analyzer
+
+.. image:: images/spectrum.png
    :align: center
 
 Fx browser
