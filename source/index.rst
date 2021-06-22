@@ -28,6 +28,7 @@ Features
 * Support for LADSPA plugins
 * Parameter control through MIDI CC
 * Oscilloscope and Spectrum Analyzer
+* Recorder
 
 User interface
 --------------
