@@ -98,7 +98,7 @@ Together with PieJam a tiny Linux system, PieJam OS, was developed. Its' purpose
 to boot as fast as possible and start PieJam. There are prebuilt images
 of this system, which you can download here:
 
-https://github.com/nooploop/piejam_os/releases/tag/v0.9.0
+https://github.com/nooploop/piejam_os/releases/tag/v0.10.0
 
 Download the image for your version of Raspberry Pi and flash it to a SDHC card.
 
