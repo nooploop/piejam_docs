@@ -29,9 +29,10 @@ Features
 
   * Dual Pan
   * Filter
-  * Gain
   * Oscilloscope
   * Spectrum Analyzer
+  * Tuner
+  * Utility
 
 * Support for LADSPA plugins
 * Parameter control through MIDI CC
