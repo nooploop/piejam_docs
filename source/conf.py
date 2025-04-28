@@ -18,7 +18,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'PieJam'
-copyright = '2020-2024, Dimitrij Kotrev'
+copyright = '2020-2025, Dimitrij Kotrev'
 author = 'Dimitrij Kotrev'
 
 # The full version, including alpha/beta/rc tags
