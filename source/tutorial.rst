@@ -86,7 +86,7 @@ belong to same mixing group if they have same output destination. 'M' will mute 
    :align: center
 
 Every channel allows modification of the audio signal by audio effects. Those can be inserted when the mixer is switched to 'effects' view.
-Switching to 'effects' view is done by pressing the 'FX' button on view toolbar, to the right of the mixer.
+Switching to 'effects' view is done by pressing the 'FX' button on the main toolbar, to the right of the mixer.
 
 .. image:: images/mixer_fx_view_initial.png
    :align: center
