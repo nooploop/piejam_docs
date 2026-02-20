@@ -1,21 +1,23 @@
 Tutorial
 ========
 
-If PieJam OS was flashed correctly and once the system is powered up, a boot logo
-should appear.
+If PieJam OS was flashed correctly, a boot logo should appear when the system is powered on.
 
-On first boot PieJam OS will perform some setup tasks. One of these tasks is to create
-a data partition. Depending on the size and speed of the SDHC card in use, this task may take
-several seconds to several minutes.
+On first boot, PieJam OS performs several initialization tasks, including creation of a data partition.
+Depending on the size and performance of the SDHC card, this process may take from several seconds to several minutes.
 
 .. image:: images/boot_setup.png
    :align: center
 
-When the boot process is finished, the application starts and you will be presented with main mixer view.
-On the left is the main toolbar, where you can switch between main views: mixer, fx, logger, settings and power.
-On top is the statusbar, containing a field for messages and tooltips, a session record button, a midi learn button and
-a system info field. On the right is a toolbar for the selected view. In the middle you'll see the mixer in its initial state,
-containing only the main mixer channel.
+When the boot process is complete, the application starts and the main mixer view is displayed.
+
+On the left is the main toolbar, which allows you to switch between the primary views: **Mixer**, **FX**, **Logger**, **Settings**, and **Power**.
+
+At the top is the status bar, which contains a message and tooltip field, a session record button, a MIDI learn button, and a system information field.
+
+On the right is a context toolbar for the currently selected view.
+
+In the center is the mixer in its initial state, containing only the main mixer channel.
 
 .. image:: images/initial_view.png
    :align: center
@@ -23,32 +25,36 @@ containing only the main mixer channel.
 Audio Device Configuration
 --------------------------
 
-As next step we need to configure the audio device. Most USB audio devices should work. Therefore make sure the audio device is
-connected to the Raspberry Pi and select the settings button (cog icon) on the main toolbar.
+Next, configure the audio device. Most USB audio devices are supported.
+Ensure that the audio device is connected to the Raspberry Pi, then select
+the **Settings** button (cog icon) in the main toolbar.
 
 .. image:: images/audio_device_settings_initial.png
    :align: center
 
-As first an input and an output device should be selected. It's possible to select different physical devices for input and output,
-but best results are achieved if same device is used for input and output. If the device is not listed in the selection box,
-try refreshing the list by pressing the refresh button to the right of the selection boxes. As next you should select a sample rate,
-period size and period count. For best results with USB audio devices set the sample rate to 48000 or 96000 Hz and period count to 3.
-By controlling the period size, you can influence the latency. Lower period size means lower latency. You
-can further reduce latency by increasing the sample rate or by reducing the period count, but work with period size first.
-Lower latency means always higher CPU usage, higher CPU usage could lead to audio glitches and dropouts. Therefore you should strive
-to find the best balance for your usecase. Try to reduce the latency for better live performance, but keep an eye on the CPU usage to
-avoid audio dropouts.
+First, select the audio device. Next, choose a sample rate and buffer size.
+
+For best results with USB audio devices, set the sample rate to **48000 Hz** or **96000 Hz**,
+and choose a buffer size whose duration is a multiple of **1 ms**.
+
+The buffer size directly affects latency: smaller buffers reduce latency, but increase CPU load.
+Higher CPU load can cause audio glitches and dropouts.
+
+You should aim to find an appropriate balance for your use case.
+For live performance, reduce latency as much as possible while monitoring CPU usage to avoid audio dropouts.
 
 .. image:: images/audio_device_settings.png
    :align: center
 
-As next we need to configure the physical inputs and outputs. Therefore select the input or the output tab to perform the configuration.
-On the input tab, press '+MONO' to add a mono device bus or '+STEREO' to add a stereo device bus.
+Next, configure the physical inputs and outputs. Select the **Input** or **Output** tab to perform the configuration.
+
+On the **Input** tab, press **+MONO** to add a mono device bus, or **+STEREO** to add a stereo device bus.
 
 .. image:: images/audio_input_settings.png
    :align: center
 
-Output device buses are always stereo. By changing the channel assignment you can route the device bus to different physical inputs/outputs.
+Output device buses are always stereo. By changing the channel assignment,
+you can route a device bus to different physical inputs or outputs.
 
 .. image:: images/audio_output_settings.png
    :align: center
@@ -56,60 +62,110 @@ Output device buses are always stereo. By changing the channel assignment you ca
 Mixer
 -----
 
-After audio device configuration, we need to configure the mixer channels. First switch to mixer by pressing the mixer button on the main toolbar.
-The view which shows level meters and faders is called the 'performance' view of the mixer. To configure the mixer channels we need to
-switch into the 'edit' view of the mixer. The 'edit' view can be switched to by pressing the 'pencil' button on the view toolbar, which is to the
-right of the mixer.
+After configuring the audio device, configure the mixer channels.
+First, switch to the **Mixer** view by pressing the **Mixer** button in the main toolbar.
+
+The view that displays level meters and faders is the mixer **Performance** view.
+To configure mixer channels, switch to the **Edit** view.
+
+You can switch to the **Edit** view by pressing the **Pencil** button in the context view toolbar on the right side of the mixer.
 
 .. image:: images/mixer_edit_view_initial.png
    :align: center
 
-The 'edit' view allows you to add and remove channels and to configure those. The 'main' channel is always present and cannot be removed.
-There are two kind of channels which can be created a 'mono' and a 'stereo' one. A mono channel should be used when a mono device input is used,
-otherwise a stereo channel should be used. The 'main' channel is a stereo one. The field at the top of every channel can be used to rename it.
-Below are two fields for input and output routing of a channel. Mono channel input can only be assigned to a device input or stay unassigned.
-Mono channel output can be routed to another stereo channel, a device output or stay unassigned. Stereo input can be set to receive its'
-signal from another channel, a stereo device input or the 'mix' input. The 'mix' input is the sum of all channels which route their output
-to this channel. The output of a stereo channel can be routed to a device output, to another stereo channel or stay unassigned.
+The **Edit** view allows you to add, remove, and configure mixer channels. The **Main** channel is always present and cannot be removed.
+
+Three channel types can be created: **Mono**, **Stereo**, and **Aux**.
+
+* Use a **Mono** channel for mono device inputs.
+* Use a **Stereo** channel for stereo device inputs.
+* The **Main** channel is a stereo channel.
+
+The field at the top of each channel is used to rename the channel.
+Below it is the color selector, which assigns a display color to the channel.
+
+Below are the input and output routing fields for the channel:
+
+**Mono channels**
+
+* Input: can be assigned to a device input or left unassigned.
+* Output: can be routed to a stereo channel, a device output, or left unassigned.
+
+**Stereo channels**
+
+* Input: can receive its signal from another channel, a stereo device input, the Mix input, or be left unassigned.
+* The **Mix** input is the sum of all channels that route their output to this channel.
+* Output: can be routed to a device output, another stereo channel, or left unassigned.
+
+**Aux channels**
+
+Aux channels are typically used for effects sends or cue mixes.
 
 .. image:: images/mixer_edit_view.png
    :align: center
 
-Switching back to 'performance' view is done by pressing the 'pencil' button on the view toolbar or by pressing the 'mixer' button on the
-main toolbar. On top of each channel there is a field with its name, which can be changed on the 'edit' view. Beneath is a bipolar slider,
-which controls the panning on a mono channel or the stereo balance on a stereo channel. Below are the level meters and the volume fader.
-The level meters show the output level after the volume fader is applied. At the bottom there are three control buttons. 'R' toggles
-the record state during session recording. 'S' (Solo) will mute all other channels in same mixing group, which are not soloed too. Channels
-belong to same mixing group if they have same output destination. 'M' will mute the channel.
+You can switch back to the **Performance** view by pressing the **Pencil** button in the view toolbar or the **Mixer** button in the main toolbar.
+
+At the top of each channel is its name field, which can be edited in the **Edit** view.
+Beneath it is a bipolar slider that controls *panning* for mono channels and *stereo balance* for stereo channels.
+
+Below the slider are the level meters and the volume fader. The level meters display the channel output level after the volume fader is applied.
+
+At the bottom of each channel are three control buttons:
+
+* **R**: Toggles the record state for session recording.
+* **S** (Solo): Mutes all other channels in the same mixing group that are not soloed. Channels belong to the same mixing group if they share the same output destination.
+* **M** (Mute): Mutes the channel.
 
 .. image:: images/mixer_performance_view.png
    :align: center
 
-Every channel allows modification of the audio signal by audio effects. Those can be inserted when the mixer is switched to 'effects' view.
-Switching to 'effects' view is done by pressing the 'FX' button on the main toolbar, to the right of the mixer.
+Click the **Arrows** button below the **Pencil** button to switch to the **Aux Sends** view.
+
+In this view, you can send a portion of each channel’s signal to an **Aux** channel.
+You can also choose whether the signal is tapped *pre-* or *post-fader*.
+
+By default, this setting is **Auto**, which follows the default fader tap configured on the corresponding **Aux** channel.
+
+.. image:: images/mixer_aux_sends_view.png
+   :align: center
+
+Effects
+-------
+
+Every channel allows modification of its audio signal using audio effects. Effects can be inserted when the mixer is in the **Effects** view.
+
+To switch to the **Effects** view, press the **FX** button in the main toolbar, located to the right of the mixer.
 
 .. image:: images/mixer_fx_view_initial.png
    :align: center
 
-Appending an effect to a channels effect chain is done by pressing the '+' button at the bottom of the corresponding channel. When the '+'
-button is pressed the effect browser will appear.
+To append an effect to a channel’s effect chain, press the **+** button at the bottom of the corresponding channel.
+
+Pressing the **+** button opens the **Effect Browser**.
 
 .. image:: images/fx_browser.png
    :align: center
 
-To the left is a list of available effect modules. The list may differ depending on the configuration of the channel (mono/stereo). After
-selecting an effect in the list, by pressing 'INSERT' button, the module will be appended to the effect chain of the corresponding channel.
-When the module is inserted, the view will switch to the newly inserted module. To add more modules switch to the mixer by pressing the
-'mixer' button on the main toolbar. Perform the same series of actions to add more modules. By pressing on a name of an effect module in the
-'fx' view, the module will selected. Selection is indicated by a highlighted border and a delete button ('X') will appear to the right of the name
-of the selected module. The position of a selected module inside the effect chain can be changed with the up and down buttons at the bottom
-of the channel with selected module. Moving a module up will move it closer to the input and moving it down will move it closer to the output.
+On the left is a list of available effect modules. The list may vary depending on the channel type (Mono or Stereo).
+
+To add an effect, select it from the list and press the *INSERT* button.
+The module will be appended to the effect chain of the corresponding channel.
+After insertion, the view will switch to the newly added module.
+
+To add additional modules, return to the **Effects** view by pressing the **FX** button and repeat the same steps.
+
+In the **Effects** view, clicking on the name of an effect module selects it.
+Selection is indicated by a highlighted border, and a **Delete (X)** button appears to the right of the module name.
+
+The position of a selected module within the effect chain can be changed using the **Up** and **Down**
+buttons at the bottom of the channel. Moving a module *up* positions it closer to the input,
+while moving it *down* positions it closer to the output.
 
 .. image:: images/mixer_fx_view.png
    :align: center
 
-Clicking on the selected module again will show the modules interface and switch into 'FX' view. When there is a selected module the 'FX' button
-on the main toolbar will be active and by pressing it, it will always show the last selected effect module.
+Clicking on a selected module again opens the module’s interface.
 
 .. image:: images/fx_view_filter.png
    :align: center
@@ -117,24 +173,36 @@ on the main toolbar will be active and by pressing it, it will always show the l
 MIDI
 ----
 
-MIDI continuous controller messages can be used to control parameters in PieJam. Most mixer parameters and almost all parameters of any effect module
-can be controlled. To be able to assign MIDI CC to a parameter, a MIDI sending device should be enabled first. All available MIDI devices will be listed
-on the 'MIDI' settings tab. There, every MIDI sending device can be switched on and off.
+MIDI CC and pitch bend messages can be used to control parameters in PieJam.
+Most mixer parameters and nearly all parameters of any effect module are controllable.
+
+To assign a MIDI CC or pitch bend to a parameter, a MIDI input device must be enabled first.
+
+All available MIDI devices are listed on the **MIDI** settings tab.
+Each MIDI input device can be individually enabled or disabled there.
 
 .. image:: images/midi_input_settings.png
    :align: center
 
-After a MIDI device was enabled, we can assign a MIDI CC to a parameter. For this we need to switch into MIDI assign mode, by pressing the 'MIDI'
-button in the status bar at the top. Every assignable parameter will get a yellow overlay. Pressing on one of those overlays will activate it and it
-starts to flash. This signals that this parameter is now in 'learning' mode and is waiting for any incoming MIDI CC messages.
+After enabling a MIDI device, you can assign a MIDI CC to a parameter.
+
+First, switch to **MIDI Assign** mode by pressing the *MIDI* icon button in the status bar at the top.
+All assignable parameters will be highlighted with a *yellow* overlay.
+
+Clicking on a highlighted parameter activates it, causing it to flash.
+This indicates that the parameter is now in *learning* mode and is waiting for incoming MIDI CC messages.
 
 .. image:: images/midi_learn.png
    :align: center
 
-When a MIDI CC message is received, the 'learning' parameter will be immediately assigned to this CC and can now be controlled by it. Every following
-MIDI CC message with the assigned CC number will modify this parameter with the corresponding CC value. The overlay of an assigned parameter will
-become green. The assigned CC is noted in the left-top corner of the overlay, e.g. 'CC 10 @1', which means 'CC 10' on MIDI channel 1. Pressing the
-'MIDI' button in statusbar at the top again, will leave the MIDI-assign mode.
+When a MIDI CC message is received, the parameter in *learning* mode is immediately assigned
+to that CC and can now be controlled by it. Any subsequent MIDI CC messages with the same CC
+number will adjust the parameter according to the received CC value.
+
+The overlay of an assigned parameter turns *green*. The assigned CC is displayed in the top-left corner of the overlay,
+for example, [CC 10 @1], which means *CC 10* on MIDI channel 1.
+
+Pressing the MIDI icon button in the status bar again exits **MIDI Assign** mode.
 
 .. image:: images/midi_learned.png
    :align: center
@@ -142,13 +210,16 @@ become green. The assigned CC is noted in the left-top corner of the overlay, e.
 Session Recording
 -----------------
 
-PieJam provides a simple way to record the output of every mixer channel. To mark a mixer channel for recording, toggle the 'R' button on the
-corresponding channel. To start recording press the 'REC' button on the statusbar at the top. To stop recording press the 'REC' button again.
-PieJam will record the output to files stored in the data partition on the microSD card. Files will be stored in a specific folder structure.
-The top folder is called 'recordings'. Beneath you will find the session folders. The folders are enumerated in increasing order. Everytime PieJam
-starts a new session folder will be created when recording starts. Further down there are 'take' folders. Those are created everytime the
-'REC' button is toggled. So a session might consist of multiple takes. Every channel which is marked for recording will record into a file inside
-of a 'take' folder.
+PieJam provides a simple way to record the output of each mixer channel. To mark a channel for recording, toggle the *R* button on that channel.
+
+To start recording, press the *REC* button in the status bar at the top. Press the *REC* button again to stop recording.
+
+PieJam saves the recorded output as files on the data partition of the microSD card, using a structured folder hierarchy:
+
+* The top-level folder is called *recordings*.
+* Inside it are *session* folders, numbered sequentially. A new *session* folder is created each time recording begins in a new session.
+* Within each *session* folder are *take* folders, created each time the *REC* button is toggled. A session may therefore contain multiple takes.
+* Each channel marked for recording creates a file inside the corresponding take folder.
 
 .. image:: images/recordings.png
    :align: center
@@ -156,11 +227,41 @@ of a 'take' folder.
 Info Field
 ----------
 
-The field in the top right corner contains some information about the status of the system. The percentage underneath the microSD icon indicates how
-much space of the data partition is used. The celsius readout is the temperature of the CPU. And atlast the percentage shows audio load. Higher load
-may lead to dropouts. The color of the percentage sign indicates the occurence of dropouts. Green means that there were no dropouts sofar. Red means
-that a dropout occured recently. And yellow means that a dropout occured some time ago (more than 2 sec). Below the percentage, four small bars show
-the load of every CPU core on the Raspberry Pi.
+The field in the top-right corner displays information about the system status.
+
+* The percentage below the microSD icon indicates the used space on the data partition.
+* The temperature readout shows the CPU temperature in Celsius.
+* The percentage labeled Audio Load shows the current audio processing load. Higher load may cause audio dropouts.
+* The color of the audio load percentage indicates dropout occurrences: *Green* means no dropouts have occurred, *Red* indicates a recent dropout, and *Yellow* indicates a dropout occurred more than 2 seconds ago.
+* Below the audio load percentage, four small bars display the load of each CPU core on the Raspberry Pi.
 
 .. image:: images/status_field.png
+   :align: center
+
+Settings
+--------
+
+Display
+*******
+
+On the **Display** settings tab, you can set the screen rotation.
+This is especially useful for the V2 touchscreen, which defaults to portrait mode.
+
+.. image:: images/settings_display.png
+   :align: center
+
+Session
+*******
+
+The *Session* settings tab contains all session-related options and actions.
+
+Available actions include:
+
+* *Create a new session* – Start a fresh session with default settings.
+* *Set a template for new sessions* – Choose a session template that will be used as the starting point for new sessions.
+* *Save the current session* – Save all current mixer settings, channels, and configurations.
+* *Load a previously saved session* – Open a session that was saved earlier.
+* *Set the default startup session* – Specify which session is loaded automatically when PieJam starts; this can be a new session or the current session.
+
+.. image:: images/settings_session.png
    :align: center

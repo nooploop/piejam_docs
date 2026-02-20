@@ -11,23 +11,28 @@ the functionality.
 Features
 --------
 
-* Dynamic configuration of inputs and outputs
-* Panning, stereo balance and volume controls
-* Mute and solo
-* Flexible routing between mixer channels and signal sends
-* Fx chain per mixer channel
-* Fx modules:
+* Mixing & Routing
 
-  * Dual Pan
-  * Filter
-  * Oscilloscope
-  * Spectrum Analyzer
-  * Tuner
-  * Utility
+  * Dynamic input/output configuration
+  * Flexible channel routing
+  * Panning, stereo balance, volume
+  * Mute and solo
 
-* Support for LADSPA plugins
-* Parameter control through MIDI CC
-* Session recorder
+* Effects & Processing
+
+  * Per-channel FX chains
+  * Built-in modules: Dual Pan, Filter, Utility
+  * Analysis tools: Oscilloscope, Spectrum Analyzer, Tuner
+  * LADSPA plugin support
+
+* Control & Automation
+
+  * MIDI CC/Pitchbend parameter control
+
+* Sessions
+
+  * Session recording
+  * Session management
 
 Usage Example
 -------------

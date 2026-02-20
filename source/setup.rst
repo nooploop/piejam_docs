@@ -11,8 +11,9 @@ For a minimal setup you will need:
   * 2B v1.1
   * 3B v1.2
   * 4B
+  * 5B
 
-* the Raspberry Pi 7" touchscreen display
+* the Raspberry Pi 7" touchscreen display (V2 is only supported on 4B or 5B)
 * a USB audio interface
 * SDHC card (at least 512MB) with PieJam OS
 
@@ -54,7 +55,7 @@ Together with PieJam a tiny Linux system, PieJam OS, was developed. Its' purpose
 to boot as fast as possible and start PieJam. There are prebuilt images
 of this system, which you can download here:
 
-https://github.com/nooploop/piejam_os/releases/tag/v0.10.0
+https://github.com/nooploop/piejam_os/releases/tag/v0.12.0
 
 Download the image for your version of Raspberry Pi and flash it to a SDHC card.
 
