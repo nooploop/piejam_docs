@@ -18,11 +18,11 @@
 # -- Project information -----------------------------------------------------
 
 project = 'PieJam'
-copyright = '2020-2025, Dimitrij Kotrev'
+copyright = '2020-2026, Dimitrij Kotrev'
 author = 'Dimitrij Kotrev'
 
 # The full version, including alpha/beta/rc tags
-release = 'v0.10.0'
+release = 'v0.12.0'
 
 
 # -- General configuration ---------------------------------------------------
