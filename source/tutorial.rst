@@ -135,7 +135,7 @@ Effects
 
 Every channel allows modification of its audio signal using audio effects. Effects can be inserted when the mixer is in the **Effects** view.
 
-To switch to the **Effects** view, press the **FX** button in the main toolbar, located to the right of the mixer.
+To switch to the **Effects** view, press the **FX** button in the main toolbar, located to the left of the mixer.
 
 .. image:: images/mixer_fx_view_initial.png
    :align: center
